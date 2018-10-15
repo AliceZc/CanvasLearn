@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>title</title>
+	<style>
+		canvas {
+			border: 1px solid #ccc;
+		}
+		.linearGradient {
+			width: 400px;
+			height: 100px;
+			/* background-image: linear-gradient(to right, pink, blue) */
+			background-image: linear-gradient(45deg, pink, blue)
+		}
+	</style>
+</head>
+<body>
+	<!-- 线性渐变 -->
+	<div class="linearGradient"></div>
+	<canvas width="600" height="400"></canvas>
+	<script>
+		var myCanvas = document.querySelector('canvas')
+		var ctx = myCanvas.getContext('2d') // web gl 绘制 3d 效果的网页技术
+
+		/*使用一个渐变的方案填充矩形*/
+		/*渐变是有长度的*/
+
+		/*x0 y0 起始点 x1y1 结束点 确定长度和方向*/
+		var linearGradient = ctx.createLinearGradient(100, 100, 500, 100)
+
+		linearGradient.addColorStop(0, 'pink')
+		linearGradient.addColorStop(1, 'blue')
+
+		ctx.fillStyle = linearGradient
+		ctx.fillRect(100, 100, 400, 100)
+		/*pink ---> bule*/
+
+	</script>
+</body>
+</html>

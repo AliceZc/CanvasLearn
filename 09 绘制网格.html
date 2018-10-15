@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>title</title>
+	<style>
+		canvas {
+			border: 1px solid #ccc;
+			/*不建议在 样式设置尺寸*/
+			/*因为在这里设置高宽,等同于把画布扩大缩放,
+			  画布中的图形也会跟着改变
+			*/
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400"></canvas>
+	<script>
+		// 获取元素
+		var myCanvas = document.querySelector('canvas')
+		// 获取上下文 获取工具箱
+		var ctx = myCanvas.getContext('2d') // web gl 绘制 3d 效果的网页技术
+
+		var gridSize = 10
+		/*也可以通过 myCanvas.width 和 myCanvas.height*/
+		var canvasWidth = ctx.canvas.width
+		var canvasHeight = ctx.canvas.height
+
+		var xLineTotal = Math.floor(canvasHeight / gridSize) 
+		for (var i = 0; i <= xLineTotal; i++) {
+			ctx.beginPath()
+			ctx.moveTo(0, i * gridSize - 0.5)
+			ctx.lineTo(canvasWidth, i * gridSize - 0.5)
+			ctx.strokeStyle = '#eee'
+			ctx.stroke()
+		}
+
+		var yLineTotal = Math.floor(canvasWidth / gridSize) 
+		for (var i = 0; i <= yLineTotal; i++) {
+			ctx.beginPath()
+			ctx.moveTo(i * gridSize - 0.5, 0)
+			ctx.lineTo(i * gridSize - 0.5, canvasHeight)
+			ctx.strokeStyle = '#eee'
+			ctx.stroke()
+		}
+	</script>
+</body>
+</html>

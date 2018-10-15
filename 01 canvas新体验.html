@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas新体验</title>
+	<style>
+		canvas {
+			border: 1px solid #ccc;
+			/*不建议在 样式设置尺寸*/
+			/*因为在这里设置高宽,等同于把画布扩大缩放,
+			  画布中的图形也会跟着改变
+			*/
+		}
+	</style>
+</head>
+<body>
+	<!-- 准备画布 -->
+	<!-- 画布是白色的 而且默认 300*150 -->
+	<!-- 设置画布的大小 width="600" height="400" -->
+	<canvas width="600" height="400"></canvas>
+	<!-- 准备绘制工具 -->
+	<!-- 利用工具绘图 -->
+	<script>
+		// 获取元素
+		var myCanvas = document.querySelector('canvas')
+		// 获取上下文 获取工具箱
+		var ctx = myCanvas.getContext('2d') // web gl 绘制 3d 效果的网页技术
+		// 移动画笔
+		ctx.moveTo(100, 100)
+		// 绘制直线 (轨迹 绘制路径)
+		ctx.lineTo(200, 100)
+		// 描边
+		ctx.stroke()
+	</script>
+</body>
+</html>
